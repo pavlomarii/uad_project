@@ -1,3 +1,7 @@
 %div{ id: "#{dom_id article}" }
-  = article.title
-  = article.content
+  .row
+    .col-8.offset-2
+      .text-end
+        = article.created_at.to_s
+      %strong= article.title
+      = article.content
