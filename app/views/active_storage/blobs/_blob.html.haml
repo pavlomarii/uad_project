@@ -1,0 +1,22 @@
+%figure{ class: "attachment attachment--#{blob.representable? ? "preview" : "file"} attachment--#{blob.filename.extension}" }
+  - if blob.video?
+    %video{ controls: "false", poster: polymorphic_url(blob), width: "100%" }
+      %source{ src: rails_blob_url(blob), type: blob.content_type }
+  - elsif blob.audio?
+    %audio{ controls: "true", preload: "metadata", width: "100%" }
+      %source{ src: rails_blob_url(blob), type: blob.content_type }
+  - elsif blob.content_type == "application/pdf"
+    %embed{ src: rails_blob_url(blob), width: "800", height: "500", type: "application/pdf" }
+  - elsif blob.representable?
+    = image_tag blob.representation(resize_to_limit: local_assigns[:in_gallery] ? [ 800, 600 ] : [ 1024, 768 ])
+
+  -# Uncomment this if you want to include captions.
+  -#%figcaption.attachment__caption
+  -#  - caption = blob.try(:caption)
+  -#  - if caption
+  -#    = caption
+  -#  - else
+  -#    %span.attachment__name= blob.filename
+  -#    %span.attachment__size= number_to_human_size blob.byte_size
+  -#  %span ·
+  -#  = link_to "Download", rails_blob_path(blob, disposition: "attachment")
