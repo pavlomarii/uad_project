@@ -51,6 +51,10 @@ gem "image_processing", "~> 1.2"
 # Enable Haml as an Template Engine [https://github.com/haml/haml-rails]
 gem "haml-rails", "~> 2.0"
 
+# Add these gems in order to use esbuild and bootstrap.
+gem "cssbundling-rails", "~> 1.1"
+gem "jsbundling-rails", "~> 1.1"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
