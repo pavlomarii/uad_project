@@ -58,6 +58,9 @@ gem "jsbundling-rails", "~> 1.1"
 # Powerful authentication and authorization.
 gem "devise", "~> 4.9"
 
+# Use aws-sdk-s3 to configure Rails to use Amazon Web Services
+gem 'aws-sdk-s3'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
