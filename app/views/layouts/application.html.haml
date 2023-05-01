@@ -11,6 +11,8 @@
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   %body
     = render partial: 'layouts/navigation'
-    %p.notice= notice
-    %p.alert= alert
+    - if notice.present?
+      %p.notice= notice
+    - if alert.present?
+      %p.alert= alert
     = yield
