@@ -17,5 +17,6 @@ ActiveRecordDoctor.configure do
                            "ActiveStorage::VariantRecord",
                            "ActiveStorage::Attachment",
                            "ActionText::RichText",
-                           "ActionText::EncryptedRichText"]
+                           "ActionText::EncryptedRichText"],
+           ignore_attributes: ["User.encrypted_password"]
 end
