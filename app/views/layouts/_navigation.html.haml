@@ -1,0 +1,8 @@
+%nav.navbar.navbar-dark.bg-dark
+  = link_to "УАД Проєкт", root_path, class: "ms-4 navbar-brand h1 mb-0"
+  - if current_user.present?
+    = button_to "Вийти", destroy_user_session_path, method: :delete, class: "btn btn-light me-4"
+  - else
+    .d-flex
+      = link_to "Зареєструватись", new_user_registration_path, class: "btn btn-light me-4"
+      = link_to "Увійти", new_user_session_path, class: "btn btn-light me-4"
