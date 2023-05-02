@@ -5,6 +5,7 @@ amazon_development:
   secret_access_key: <%= Rails.application.credentials.dig(:aws_development, :secret_access_key) %>
   region: <%= Rails.application.credentials.dig(:aws_development, :region) %>
   bucket: <%= Rails.application.credentials.dig(:aws_development, :bucket) %>
+  public: true
 
 amazon_production:
   service: <%= ENV['AWS_SERVICE'] %>
@@ -12,6 +13,7 @@ amazon_production:
   secret_access_key: <%= ENV['AWS_SECRET_ACCESS_KEY'] %>
   region: <%= ENV['AWS_REGION'] %>
   bucket: <%= ENV['AWS_BUCKET'] %>
+  public: true
 
 test:
   service: Disk
