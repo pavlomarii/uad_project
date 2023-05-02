@@ -9,7 +9,9 @@
   - if current_user.present?
     %ul.navbar-nav
       %li.nav-item
-        = link_to "Написати статтю", new_article_path, class: "me-4 nav-link"
+        = link_to new_article_path, class: "me-4 nav-link" do
+          %i.bi.bi-plus-lg
+          Написати статтю
       .dropdown.me-4
         %button.btn.btn-secondary.dropdown-toggle{ type: "button", id: "dropdownMenuButton", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false" }
           = current_user.name
