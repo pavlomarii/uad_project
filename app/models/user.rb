@@ -23,6 +23,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # Relations
+  has_one_attached :avatar do |attachable|
+    attachable.variant :thumb, resize_to_limit: [256, 256]
+  end
+  has_many :articles, inverse_of: :author, foreign_key: 'author_id'
+
   # Validations
   validates :name, presence: true, length: { minimum: 3 }
 end
