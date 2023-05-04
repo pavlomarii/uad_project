@@ -1,0 +1,11 @@
+.col-8.offset-2
+= form_for current_user, url: profile_path, html: { method: :patch } do |form|
+  .field
+    = form.label :name, "Імʼя (або назва)"
+    = form.text_field :name
+  .field
+    = form.label :avatar, "Аватар"
+    = form.file_field :avatar, accept: 'image/png,image/jpeg', value: current_user.avatar&.filename
+
+  .actions
+    = form.submit "Зберегти"
