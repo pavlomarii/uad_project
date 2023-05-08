@@ -14,6 +14,7 @@
           Написати статтю
       .dropdown.me-4
         %button.btn.btn-secondary.dropdown-toggle{ type: "button", id: "dropdownMenuButton", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false" }
+          = avatar(:small)
           = current_user.name
         .dropdown-menu{ "aria-labelledby" => "dropdownMenuButton" }
           = link_to "Мій профіль", profile_path, class: "dropdown-item"
