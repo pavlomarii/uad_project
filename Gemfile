@@ -79,6 +79,9 @@ group :development do
   # Check integrity of DB and Models [https://github.com/gregnavis/active_record_doctor]
   gem 'active_record_doctor'
 
+  # View emails in development.
+  gem 'letter_opener_web', '~> 2.0'
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
