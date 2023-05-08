@@ -1,11 +1,13 @@
-.col-8.offset-2
-= form_for current_user, url: profile_path, html: { method: :patch } do |form|
-  .field
-    = form.label :name, "Імʼя (або назва)"
-    = form.text_field :name
-  .field
-    = form.label :avatar, "Аватар"
-    = form.file_field :avatar, accept: 'image/png,image/jpeg', value: current_user.avatar&.filename
+.col-8.offset-2.mt-4
+  = form_for current_user, url: profile_path, html: { method: :patch } do |form|
+    .mb-3.form-floating
+      = form.text_field :name, class: "form-control", placeholder: "name@example.com"
+      = form.label :name, "Імʼя (або назва)"
+    .mb-3
+      = form.label :avatar, "Аватар", class: "form-label"
+      = form.file_field :avatar, accept: 'image/png,image/jpeg', class: "form-control"
+      - if current_user.avatar.attached?
+        .form-text Аватар вже додано. Якщо бажаєте, тут ви можете обрати новий аватар.
 
-  .actions
-    = form.submit "Зберегти"
+    .actions
+      = form.submit "Зберегти", class: "btn btn-primary"

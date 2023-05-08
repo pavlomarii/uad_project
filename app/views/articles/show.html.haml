@@ -1,7 +1,16 @@
 .row
   .col-8.offset-2
     .mt-3.my-5
-      = render partial: 'shared/user_badge', locals: { user: @article.author }
+      .row
+        .col-1
+          = avatar(:medium, @article.author)
+        .col-6
+          %h4= @article.author.name
+          %p= @article.created_at.strftime("%B %d, %Y")
+        - if current_user == @article.author
+          .col-5.text-end
+            = link_to "Редагувати статтю", edit_article_path(@article), class: "btn btn-primary"
+
     %h2= @article.title
     = @article.content
 
