@@ -1,0 +1,21 @@
+.container.py-5.h-100
+  .row.d-flex.justify-content-center.align-items-center.h-100
+    .col-12.col-md-8.col-lg-6.col-xl-5
+      .card.bg-dark.text-white{ style: "border-radius: 1rem;" }
+        .card-body.p-5.text-center
+          .mb-md-5.mt-md-4.pb-4
+            %h2.fw-bold.mb-2.text-uppercase
+              Змініть Ваш пароль
+            %p.text-white-50.mb-5
+              Будь ласка, надайте Ваш новий пароль!
+            = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+              = f.hidden_field :reset_password_token
+              .form-outline.form-white.mb-4
+                = f.password_field :password, autofocus: true, autocomplete: "new-password", placeholder: "Новий пароль", class: "form-control form-control-lg"
+              .form-outline.form-white.mb-4
+                = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Підтвердження пароля", class: "form-control form-control-lg"
+              = f.submit "Змінити пароль", class: "btn btn-outline-light btn-lg px-5"
+          %div
+            %p.mb-0
+              Згадали пароль?
+              = link_to "Увійти", new_session_path(resource_name), class: "text-white-50 fw-bold"
