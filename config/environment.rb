@@ -5,7 +5,7 @@ require_relative "application"
 Rails.application.initialize!
 
 ActionMailer::Base.smtp_settings = {
-  username: 'apikey',
+  user_name: 'apikey',
   password: ENV["SENDGRID_API_KEY"],
   domain: "uad-articles.herokuapp.com",
   address: "smtp.sendgrid.net",
