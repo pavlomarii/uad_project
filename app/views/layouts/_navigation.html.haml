@@ -1,4 +1,4 @@
-%nav.navbar.navbar-dark.bg-dark.navbar-expand-md
+%nav.navbar.navbar-dark.bg-dark.navbar-expand-md.sticky-top
   = link_to "УАД Проєкт", root_path, class: "ms-4 navbar-brand h1 mb-0"
   %button.navbar-toggler{ type: "button", "data-bs-toggle" => "collapse", "data-bs-target" => "#navbarNav", "aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Розгорнути" }
     %span.navbar-toggler-icon
@@ -16,7 +16,7 @@
         %button.btn.btn-secondary.dropdown-toggle{ type: "button", id: "dropdownMenuButton", "data-bs-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false" }
           = avatar(:small)
           = current_user.name
-        .dropdown-menu{ "aria-labelledby" => "dropdownMenuButton" }
+        .dropdown-menu.dropdown-menu-end{ "aria-labelledby" => "dropdownMenuButton" }
           = link_to "Мій профіль", profile_path, class: "dropdown-item"
           = button_to "Вийти", destroy_user_session_path, method: :delete, class: "dropdown-item"
   - else
