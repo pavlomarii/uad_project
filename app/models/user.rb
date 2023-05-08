@@ -26,6 +26,7 @@ class User < ApplicationRecord
   # Relations
   has_one_attached :avatar do |attachable|
     attachable.variant :thumb, resize_to_limit: [256, 256]
+    attachable.variant :medium, resize_to_limit: [64, 64]
     attachable.variant :small, resize_to_limit: [32, 32]
   end
   has_many :articles, inverse_of: :author, foreign_key: 'author_id'

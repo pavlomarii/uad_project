@@ -1,8 +1,11 @@
-%p{ style: "color: green" }= notice
+.row
+  .col-8.offset-2
+    .mt-3.my-5
+      = render partial: 'shared/user_badge', locals: { user: @article.author }
+    %h2= @article.title
+    = @article.content
 
-= render @article
-
-%div
-  = link_to "Edit this article", edit_article_path(@article)
-  = link_to "Back to articles", articles_path
-  = button_to "Destroy this article", @article, method: :delete
+-#%div
+-#  = link_to "Edit this article", edit_article_path(@article)
+-#  = link_to "Back to articles", articles_path
+-#  = button_to "Destroy this article", @article, method: :delete
