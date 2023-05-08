@@ -20,7 +20,7 @@ en:
       confirmation_instructions:
         subject: "Підтвердження облікового запису"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Запит на зміну пароля"
       unlock_instructions:
         subject: "Unlock instructions"
       email_changed:
