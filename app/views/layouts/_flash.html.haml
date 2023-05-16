@@ -1,0 +1,7 @@
+.row
+  .col-10.offset-1.mt-2
+    - flash.each do |type, msg|
+      - next unless msg.is_a? String
+      %div{ class: "alert alert-dismissible #{flash_type(type)}", role: 'alert' }
+        = simple_format(msg, {}, sanitize: false, wrapper_tag: 'span')
+        %button.btn-close{ 'aria-label' => 'Close', 'data-bs-dismiss' => 'alert', type: 'button' }

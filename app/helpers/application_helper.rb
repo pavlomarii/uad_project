@@ -7,4 +7,20 @@ module ApplicationHelper
       image_tag user.avatar.variant(variant), class: "rounded"
     end
   end
+
+  def flash_type(type)
+    type = case type.to_sym
+           when :notice
+             :success
+           when :alert
+             :warning
+           when :error
+             :danger
+           when :timedout
+             :dark
+           else
+             :info
+           end
+    "alert-#{type}"
+  end
 end
