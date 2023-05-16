@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :set_article, only: %i[ show edit update destroy ]
 
   # GET /articles
@@ -24,7 +25,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to article_url(@article), notice: "Article was successfully created."
+      redirect_to article_url(@article), notice: "Стаття була успішно створена."
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +34,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   def update
     if @article.update(article_params)
-      redirect_to article_url(@article), notice: "Article was successfully updated."
+      redirect_to article_url(@article), notice: "Стаття була успішно редагована."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,7 +43,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   def destroy
     @article.destroy
-    redirect_to articles_url, notice: "Article was successfully destroyed."
+    redirect_to articles_url, notice: "Стаття була успішно видалена."
   end
 
   private
