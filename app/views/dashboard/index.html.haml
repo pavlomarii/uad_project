@@ -1,16 +1,16 @@
 .row.mt-5
   .col-5.offset-1.text-center.me-1
-    %h3 Топ-3 статті
+    %h3 Топ-20 статeй
     - @top_articles.each do |article|
       .card.text-center.mb-2
         .card-header
           = article.author.name
         .card-body
           %h5.card-title= article.title
-          %p.card-text= "With supporting text below as a natural lead-in to additional content."
+          %p.card-text= article.content.to_plain_text.truncate(100)
           = link_to "Переглянути", article_path(article), class: 'btn btn-primary'
   .col-5.offset-1.text-center.ms-1
-    %h3 Топ-3 автори
+    %h3 Топ-20 авторів
     - @top_authors.each do |author|
       .card.text-center.mb-2
         .card-header

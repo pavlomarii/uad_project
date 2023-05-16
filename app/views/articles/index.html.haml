@@ -1,8 +1,11 @@
-%p{ style: "color: green" }= notice
-%h1 Articles
-#articles
-  - @articles.each do |article|
-    = render article
-    %p
-      = link_to "Show this article", article
-= link_to "New article", new_article_path
+.row
+  .col-8.offset-2
+    - @articles.each do |article|
+      .my-5.border.border-0.shadow.rounded.d-flex.justify-content-between
+        .d-inline-flex
+          = avatar(:medium, article.author)
+          .ms-2
+            %p.mb-0= article.author.name
+            %p.mb-0= article.title.truncate(70)
+
+        = link_to 'Переглянути', article_path(article), class: 'btn btn-primary d-inline-flex align-items-center'
