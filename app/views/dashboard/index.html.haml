@@ -1,1 +1,17 @@
-%h1 SUPER DASHBOARD
+.row.mt-5
+  .col-5.offset-1.text-center.me-1
+    %h3 Топ-3 статті
+    - @top_articles.each do |article|
+      .card.text-center.mb-2
+        .card-header
+          = article.author.name
+        .card-body
+          %h5.card-title= article.title
+          %p.card-text= "With supporting text below as a natural lead-in to additional content."
+          = link_to "Переглянути", article_path(article), class: 'btn btn-primary'
+  .col-5.offset-1.text-center.ms-1
+    %h3 Топ-3 автори
+    - @top_authors.each do |author|
+      .card.text-center.mb-2
+        .card-header
+          = author.name
