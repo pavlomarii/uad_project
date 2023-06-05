@@ -20,6 +20,7 @@ class Article < ApplicationRecord
   # Relations
   belongs_to :author, class_name: "User"
   has_rich_text :content
+  acts_as_taggable_on :tags
 
   # Validations
   validates :title, presence: true

@@ -6,5 +6,8 @@
         = form.label :title, 'Заголовок'
       .mb-3
         = form.rich_text_area :content, class: 'form-control'
+      .mb-3.form-floating
+        = form.text_field :tag_list, value: article.tags.map(&:name).join(', '), class: 'form-control', placeholder: 'Теги'
+        = form.label :title, 'Теги (через кому)'
       .actions
         = form.submit 'Зберегти', class: 'btn btn-primary'

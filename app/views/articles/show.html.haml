@@ -1,4 +1,4 @@
-.row
+.row.mb-5
   .col-8.offset-2
     .mt-3.my-5
       .row
@@ -12,4 +12,7 @@
             = link_to "Редагувати статтю", edit_article_path(@article), class: "btn btn-primary"
 
     %h2= @article.title
-    = @article.content
+    %p= @article.content
+    - @article.tags.each do |tag|
+      %h4.d-inline
+        %span.badge.bg-secondary.rounded-pill= tag.name
