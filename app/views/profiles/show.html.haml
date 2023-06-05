@@ -9,17 +9,23 @@
             %h2.mb-0.mt-0= @user.name
             %span= @user.email
           %div
-            = link_to "Редагувати", edit_profile_path(@user), class: "btn btn-dark" if @user == current_user
+            - if @user == current_user
+              = link_to "Редагувати", edit_profile_path(@user), class: "btn btn-dark"
+            - else
+              - if current_user.following?(@user)
+                = button_to 'Відписатись', relationship_path(other_user_id: @user.id), method: :delete, class: "btn btn-outline-dark"
+              - else
+                = button_to 'Підписатись', relationships_path(other_user_id: @user.id), class: "btn btn-dark"
         .p-2.mt-2.bg-primary.d-flex.justify-content-between.rounded.text-white.stats
           .d-flex.flex-column
             %h4.text-muted= "Статті"
             %span.text-center.display-6= @user.articles.count
           .d-flex.flex-column.ms-4
             %h4.text-muted= "Підписники"
-            %span.text-center.display-6= "38"
+            %span.text-center.display-6= @user.followers.count
           .d-flex.flex-column.ms-4
-            %h4.text-muted= "Рейтинг"
-            %span.text-center.display-6= "5"
+            %h4.text-muted= "Підписаний"
+            %span.text-center.display-6= @user.following.count
 
 :css
   .card{
