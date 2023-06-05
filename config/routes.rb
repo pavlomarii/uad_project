@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :articles
-  resource :profile, only: %i[show edit update destroy]
+  resources :profiles, except: %i[new create]
 end

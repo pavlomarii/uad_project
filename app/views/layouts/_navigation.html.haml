@@ -17,7 +17,7 @@
           = avatar(:small)
           = current_user.name
         .dropdown-menu.dropdown-menu-end{ "aria-labelledby" => "dropdownMenuButton" }
-          = link_to "Мій профіль", profile_path, class: "dropdown-item"
+          = link_to "Мій профіль", profile_path(current_user), class: "dropdown-item"
           = button_to "Вийти", destroy_user_session_path, method: :delete, class: "dropdown-item"
   - else
     .d-flex
