@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :articles
   resources :profiles, except: %i[new create]
+  resources :relationships, only: %i[create destroy]
 end
