@@ -1,12 +1,12 @@
 .col-8.offset-2.mt-4
-  = form_for current_user, url: profile_path, html: { method: :patch } do |form|
+  = form_for @user, url: profile_path(@user), html: { method: :patch } do |form|
     .mb-3.form-floating
       = form.text_field :name, class: "form-control", placeholder: "name@example.com"
       = form.label :name, "Імʼя (або назва)"
     .mb-3
       = form.label :avatar, "Аватар", class: "form-label"
       = form.file_field :avatar, accept: 'image/png,image/jpeg', class: "form-control"
-      - if current_user.avatar.attached?
+      - if @user.avatar.attached?
         .form-text Аватар вже додано. Якщо бажаєте, тут ви можете обрати новий аватар.
 
     .actions
